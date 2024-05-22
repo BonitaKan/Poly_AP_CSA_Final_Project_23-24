@@ -15,7 +15,6 @@ public class GameKanBonita extends GameActivity {
     public void run()
     {
         System.out.print(TextColor.GREEN + "Farm crops and Earn money! Reach $100 to win the game!\n" + TextColor.RESET);
-        Util.pauseConsole();
         createFarmer();
         runFarm();
     }
