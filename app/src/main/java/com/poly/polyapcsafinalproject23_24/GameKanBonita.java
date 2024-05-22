@@ -50,7 +50,7 @@ public class GameKanBonita extends GameActivity {
                         "\nCarrotField:\t\t" + player.getCarrotField() +
                         "\nMoney:\t\t\t\t$" + player.getMoney() + TextColor.RESET;
         System.out.println(text);
-        Util.pauseConsole();
+
 
     }
 
