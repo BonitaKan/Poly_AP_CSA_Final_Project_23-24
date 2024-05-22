@@ -56,7 +56,6 @@ public class GameKanBonita extends GameActivity {
 
     private void chooseOption()
     {
-        Util.clearConsole();
         String text = TextColor.RED + """
       What do you want to do?\n""" + TextColor.YELLOW +
                 """
