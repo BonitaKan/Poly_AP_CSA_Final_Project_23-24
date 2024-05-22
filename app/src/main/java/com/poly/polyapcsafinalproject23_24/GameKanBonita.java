@@ -22,7 +22,6 @@ public class GameKanBonita extends GameActivity {
 
     private void createFarmer()
     {
-        Util.clearConsole();
         Scanner scan = new Scanner(System.in);
         System.out.println(TextColor.GREEN + "Farmer name: " + TextColor.RESET);
         String name = scan.nextLine();
