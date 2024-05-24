@@ -15,12 +15,14 @@ public class GameKanBonita extends GameActivity {
     public void run()
     {
         System.out.print(TextColor.GREEN + "Farm crops and Earn money! Reach $100 to win the game!\n" + TextColor.RESET);
+        Util.pauseConsole();
         createFarmer();
         runFarm();
     }
 
     private void createFarmer()
     {
+        Util.clearConsole();
         Scanner scan = new Scanner(System.in);
         System.out.println(TextColor.GREEN + "Farmer name: " + TextColor.RESET);
         String name = scan.nextLine();
@@ -50,12 +52,13 @@ public class GameKanBonita extends GameActivity {
                         "\nCarrotField:\t\t" + player.getCarrotField() +
                         "\nMoney:\t\t\t\t$" + player.getMoney() + TextColor.RESET;
         System.out.println(text);
-
+        Util.pauseConsole();
 
     }
 
     private void chooseOption()
     {
+        Util.clearConsole();
         String text = TextColor.RED + """
       What do you want to do?\n""" + TextColor.YELLOW +
                 """
@@ -63,10 +66,11 @@ public class GameKanBonita extends GameActivity {
                 2. Plant crops
                 3. Sell crops
                 4. Crop shop
+                5. Stats
                 """ + TextColor.RESET;
 
         System.out.println(text);
-        int option = Util.enterInt(1,4);
+        int option = Util.enterInt(1,5);
         if (option == 1)
         {
             player.harvestFields();
@@ -111,7 +115,7 @@ public class GameKanBonita extends GameActivity {
         }
         else if (option == 5)
         {
-            displayStats();
+            runFarm();
         }
 
     }

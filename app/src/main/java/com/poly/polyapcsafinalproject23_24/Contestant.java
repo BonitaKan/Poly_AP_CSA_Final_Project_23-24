@@ -1,314 +1,203 @@
 package com.poly.polyapcsafinalproject23_24;
-/**
- * Contestant for a hot dog eating contest
- * @author Bryan Burke
- * @since 12/8/2023
- * @version 1.0
- */
-public class Contestant {
+public class Farmer{
 
-    /**
-     * contestant's name
-     */
     private String name;
-    /**
-     * number of hot dogs eaten
-     */
-    private int hotDogsEaten;
-    /**
-     * number ofsodas dranken
-     */
-    private int sodasDranken;
-    /**
-     * factor of how dry the contestant's mouth is,
-     * must remain less than 10 for the player to compete
-     */
-    private int mouthDryness;
-    /**
-     * number of calories consumed
-     */
-    private int caloriesConsumed;
-    /**
-     * maximum number of calories consumed
-     * (when the contestant is full)
-     */
-    private int maxCaloriesConsumed;
-    /**
-     * ID of the contestant, assigned in constructor
-     */
-    private final int ID;
-    /**
-     * tracks number of contestants created
-     */
-    private static int numContestants;
 
-    /**
-     * default constructor
-     * <br>Postconditions: contestant with name as empty string,
-     *     hotDogsEaten, sodasDranken, mouthDryness, caloriesConsumed set to 0, ID assigned
-     */
-    public Contestant()
-    {
-        this.name = "";
-        this.hotDogsEaten = 0;
-        this.sodasDranken = 0;
-        this.mouthDryness = 0;
-        this.caloriesConsumed = 0;
-        this.maxCaloriesConsumed = 2000;
-        numContestants++;
-        this.ID = numContestants;
-    }
+    private int wheatCollected;
 
-    /**
-     * Constructor that initializes name
-     * <br>Preconditions: name must be nonnull
-     * <br>Postconditions: contestant with given name,
-     *     hotDogsEaten, sodasDranken, mouthDryness, caloriesConsumed set to 0, ID assigned
-     * @param  name    name of contestant
-     */
-    public Contestant(String name)
+    private int carrotsCollected;
+
+    private int wheatSeeds;
+
+    private int carrotSeeds;
+
+    private int money;
+
+    private int totalCost;
+
+    private int wheatField;
+
+    private int carrotField;
+
+
+
+
+
+
+    public Farmer(String name)
     {
         this.name = name;
-        this.hotDogsEaten = 0;
-        this.sodasDranken = 0;
-        this.mouthDryness = 0;
-        this.caloriesConsumed = 0;
-        this.maxCaloriesConsumed = 2000;
-        numContestants++;
-        this.ID = numContestants;
+        this.wheatCollected = 0;
+        this.carrotsCollected = 0;
+        this.wheatSeeds = 0;
+        this.carrotSeeds = 0;
+        this.wheatField = 0;
+        this.carrotField = 0;
+        this.money = 20;
+
     }
 
-    /**
-     * Constructor that initializes all attributes
-     * <br>Preconditions: name must be nonnull, all other values must be non-negative
-     * <br>Postconditions: contestant with given name,
-     *     hotDogsEaten, sodasDranken, mouthDryness, caloriesConsumed, ID assigned
-     * @param  name                name of contestant
-     * @param  hotDogsEaten        number of hot dogs eaten ( >= 0)
-     * @param  sodasDranken        number of sodas dranken ( >= 0)
-     * @param  mouthDryness        mouth dryness factor ( >= 0)
-     * @param  caloriesConsumed    number of califories consumed ( >= 0)
-     */
-    public Contestant(String name, int hotDogsEaten, int sodasDranken, int mouthDryness, int caloriesConsumed, int maxCaloriesConsumed)
+    public Farmer(String name, int wheatCollected, int carrotsCollected, int wheatSeeds, int carrotSeeds, int wheatField, int carrotField, int money)
     {
         this.name = name;
-        this.hotDogsEaten = hotDogsEaten;
-        this.sodasDranken = sodasDranken;
-        this.mouthDryness = mouthDryness;
-        this.caloriesConsumed = caloriesConsumed;
-        this.maxCaloriesConsumed = maxCaloriesConsumed;
-        numContestants++;
-        this.ID = numContestants;
+        this.wheatCollected = wheatCollected;
+        this.carrotsCollected = carrotsCollected;
+        this.wheatSeeds = wheatSeeds;
+        this.carrotSeeds = carrotSeeds;
+        this.wheatField = wheatField;
+        this.carrotField = carrotField;
+        this.money = money;
     }
 
-    /**
-     * gets the contestant's name
-     * @return    name of contestant
-     */
+
     public String getName()
     {
         return name;
     }
 
-    /**
-     * sets the contestant's name
-     * <br>Precondition: newName is a non-empty string
-     * <br>Postcondition: name set to newName
-     * @param    newName    new name for the contestant
-     */
     public void setName(String newName)
     {
         this.name = newName;
     }
 
-    /**
-     * gets the number of hot dogs eaten
-     * @return    number of hot dogs eaten
-     */
-    public int getHotDogsEaten()
+    public int getWheatCollected()
     {
-        return hotDogsEaten;
+        return wheatCollected;
     }
 
-    /**
-     * sets the number of hot dogs eaten
-     * <br>Precondition: numHotDogs greater than or equal to 0
-     * <br>Postcondition: hotDogsEaten set
-     * @param    numHotDogs    number of hot dogs eaten (>=0)
-     */
-    public void setHotDogsEaten(int numHotDogs)
+    public void setWheatCollected(int numWheatCollected)
     {
-        this.hotDogsEaten = numHotDogs;
+        this.wheatCollected = numWheatCollected;
     }
 
-    /**
-     * gets the number of sodas dranken
-     * @return    number of sodas dranken
-     */
-    public int getSodasDranken()
+    public int getCarrotsCollected()
     {
-        return sodasDranken;
+        return carrotsCollected;
     }
 
-    /**
-     * sets the number of sodas dranken
-     * <br>Precondition: numSodas greater than or equal to 0
-     * <br>Postcondition: sodasDranken set
-     * @param    numSodas    number of sodas dranken (>=0)
-     */
-    public void setSodasDranken(int numSodas)
+    public void setCarrotsCollected(int numCarrotsCollected)
     {
-        this.sodasDranken = numSodas;
+        this.carrotsCollected = numCarrotsCollected;
     }
 
-    /**
-     * gets the mouth dryness factor
-     * @return    mouth dryness factor
-     */
-    public int getMouthDryness()
+    public int getWheatSeeds()
     {
-        return mouthDryness;
+        return wheatSeeds;
     }
 
-    /**
-     * sets the mouth dryness factor
-     * <br>Precondition: level greater than or equal to 0
-     * <br>Postcondition: mouthDryness set
-     * @param    level    new mouth dryness factor (>=0)
-     */
-    public void setMouthDryness(int level)
+    public void setWheatSeeds(int quantity)
     {
-        this.mouthDryness = level;
+        this.wheatSeeds = quantity;
     }
 
-    /**
-     * gets the number of calories consumed
-     * @return    calories consumed
-     */
-    public int getCaloriesConsumed()
+    public int getCarrotSeeds()
     {
-        return caloriesConsumed;
+        return carrotSeeds;
     }
 
-    /**
-     * sets the number of calories consumed
-     * <br>Precondition: numCalories greater than or equal to 0
-     * <br>Postcondition: caloriesConsumed set
-     * @param    numCalories    new number of calories consumed (>=0)
-     */
-    public void setCaloriesConsumed(int numCalories)
+    public void setCarrotSeeds(int quantity)
     {
-        this.caloriesConsumed = numCalories;
+        this.carrotSeeds = quantity;
     }
 
-    /**
-     * gets the maximum number of calories consumed
-     * (when the player is full)
-     * @return    maximum calories a contestant can consume
-     */
-    public int getMaxCaloriesConsumed()
+    public int getWheatField()
     {
-        return maxCaloriesConsumed;
+        return wheatField;
     }
 
-    /**
-     * gets the contestant ID
-     * (created when player is initialized)
-     * @return    contestant ID
-     */
-    public int getID()
+    public void setWheatField(int quantity)
     {
-        return ID;
+        this.wheatField = quantity;
     }
 
-    /**
-     * sets the maximum number of calories consumed
-     * (when the player is full)
-     * <br>Precondition: numCalories greater than or equal to 0
-     * <br>Postcondition: maxCaloriesConsumed set
-     * @param    numCalories    new number of calories consumed (>=0)
-     */
-    public void setMaxCaloriesConsumed(int numCalories)
+    public int getCarrotField()
     {
-        this.maxCaloriesConsumed = numCalories;
+        return carrotField;
     }
 
-    /**
-     * gets the number of contestants
-     * @return    total number of contestants created
-     */
-    public static int getNumContestants()
+    public void setCarrotField(int quantity)
     {
-        return numContestants;
+        this.carrotField = quantity;
+    }
+
+    public int getMoney()
+    {
+        return money;
+    }
+
+    public void setMoney(int numMoney)
+    {
+        this.money = numMoney;
+    }
+
+    public int gettotalCost()
+    {
+        return totalCost;
+    }
+
+    public void setTotalCost(int numTotalCost)
+    {
+        this.totalCost = numTotalCost;
+    }
+
+    public void harvestFields()
+    {
+        wheatCollected += wheatField;
+        carrotsCollected += carrotField;
+        wheatField = 0;
+        carrotField = 0;
+    }
+
+    public void sellAllWheat()
+    {
+        int wheatEarnings = wheatCollected * 10;
+        money += wheatEarnings;
+        wheatCollected = 0;
+        System.out.println("Sold all wheat for $" + wheatEarnings);
+        Util.pauseConsole();
+
+    }
+
+    public void sellAllCarrots()
+    {
+        int carrotEarnings = carrotsCollected * 20;
+        money += carrotEarnings;
+        carrotsCollected = 0;
+        System.out.println("Sold all carrots for $" + carrotEarnings);
+        Util.pauseConsole();
+
     }
 
 
-    /**
-     * toString method
-     * @return    contestant as a string
-     */
-    @Override
+
     public String toString()
     {
         return
-                "Contestant name:\t" + name +
-                        "\nHot Dogs Eaten:\t\t" + hotDogsEaten +
-                        "\nSodas Dranken:\t\t" + sodasDranken +
-                        "\nCalories Consumed:\t" + caloriesConsumed +
-                        "\nMouth Dryness:\t\t" + mouthDryness +
-                        "\nContestant ID:\t" + ID;
+                "Farmer name:\t" + name +
+                        "\nWheat collected:\t\t" + wheatCollected +
+                        "\nCarrots collected:\t\t" + carrotsCollected +
+                        "\nWheat seeds:\t" + wheatSeeds +
+                        "\nCarrot seeds:\t" + carrotSeeds +
+                        "\nWheatField:\t" + wheatField +
+                        "\nCarrotField:\t" + carrotField +
+                        "\nMoney:\t\t" + money;
     }
 
-    /**
-     * returns true if all attributes match between two contestants
-     * <br>Precondition: anotherContestant must be non-null
-     * @param    anotherContestant    another contestant object
-     * @return   true if contestants are equal
-     */
-    public boolean equals(Contestant anotherContestant)
+    public  boolean equals(Farmer anotherFarmer)
     {
-        if (this.name.equals(anotherContestant.name) &&
-                this.hotDogsEaten == anotherContestant.hotDogsEaten &&
-                this.sodasDranken == anotherContestant.sodasDranken &&
-                this.caloriesConsumed == anotherContestant.caloriesConsumed &&
-                this.mouthDryness == anotherContestant.mouthDryness &&
-                this.ID == anotherContestant.ID
+        if (this.name.equals(anotherFarmer.name) &&
+                this.wheatCollected == anotherFarmer.wheatCollected &&
+                this.carrotsCollected == anotherFarmer.carrotsCollected &&
+                this.wheatSeeds == anotherFarmer.wheatSeeds &&
+                this.carrotSeeds == anotherFarmer.carrotSeeds &&
+                this.money == anotherFarmer.money &&
+                this.totalCost == anotherFarmer.totalCost &&
+                this.wheatField == anotherFarmer.wheatField &&
+                this.carrotField == anotherFarmer.carrotField
         )
         {
             return true;
         }
         return false;
     }
-
-    /**
-     * run this method when the contestant eats a hot dog
-     * <br>Postcondition:
-     * <br>hotDogsEaten increased by 1
-     * <br>mouthDryness increased by 3
-     * <br>caloriesConsumed increased by 275
-     */
-    public void eatHotDog()
-    {
-        hotDogsEaten++;
-        mouthDryness += 3;
-        caloriesConsumed += 275;
-    }
-
-    /**
-     * run this method when the contestant drinks a soda
-     * <br>Postcondition:
-     * <br>sodasDranken increased by 1
-     * <br>mouthDryness decreased by 1
-     * <br>caloriesConsumed increased by 125
-     */
-    public void drinkSoda()
-    {
-        sodasDranken++;
-        if (mouthDryness > 0)
-        {
-            mouthDryness--;
-        }
-        caloriesConsumed += 125;
-    }
-
 }
