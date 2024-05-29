@@ -1,5 +1,5 @@
 package com.poly.polyapcsafinalproject23_24;
-public class Farmer{
+public class KanBonitaFarmer {
 
     private String name;
 
@@ -24,7 +24,7 @@ public class Farmer{
 
 
 
-    public Farmer(String name)
+    public KanBonitaFarmer(String name)
     {
         this.name = name;
         this.wheatCollected = 0;
@@ -37,7 +37,7 @@ public class Farmer{
 
     }
 
-    public Farmer(String name, int wheatCollected, int carrotsCollected, int wheatSeeds, int carrotSeeds, int wheatField, int carrotField, int money)
+    public KanBonitaFarmer(String name, int wheatCollected, int carrotsCollected, int wheatSeeds, int carrotSeeds, int wheatField, int carrotField, int money)
     {
         this.name = name;
         this.wheatCollected = wheatCollected;
@@ -173,7 +173,7 @@ public class Farmer{
     public String toString()
     {
         return
-                "Farmer name:\t" + name +
+                "KanBonitaFarmer name:\t" + name +
                         "\nWheat collected:\t\t" + wheatCollected +
                         "\nCarrots collected:\t\t" + carrotsCollected +
                         "\nWheat seeds:\t" + wheatSeeds +
@@ -183,7 +183,7 @@ public class Farmer{
                         "\nMoney:\t\t" + money;
     }
 
-    public  boolean equals(Farmer anotherFarmer)
+    public  boolean equals(KanBonitaFarmer anotherFarmer)
     {
         if (this.name.equals(anotherFarmer.name) &&
                 this.wheatCollected == anotherFarmer.wheatCollected &&

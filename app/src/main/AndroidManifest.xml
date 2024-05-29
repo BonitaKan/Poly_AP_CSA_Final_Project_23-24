@@ -25,6 +25,7 @@
         <activity android:name="com.poly.polyapcsafinalproject23_24.GameLaborDayAdventure" />
         <activity android:name="com.poly.polyapcsafinalproject23_24.MainActivity" />
         <activity android:name="com.poly.polyapcsafinalproject23_24.GameHotDogEatingContest" />
+        <activity android:name="com.poly.polyapcsafinalproject23_24.GameKanBonita" />
     </application>
 
 </manifest>
