@@ -135,9 +135,7 @@ public class GameKanBonita extends GameActivity {
 
         btnSell.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                sell();
-            }
+            public void onClick(View view) { sell();}
         });
 
         btnShop.setOnClickListener(new View.OnClickListener() {
@@ -152,15 +150,6 @@ public class GameKanBonita extends GameActivity {
         if (option == 1)
         {
             player.harvestFields();
-            Util.clearConsole();
-            System.out.println(TextColor.RED + "Harvesting fields...\n");
-            Util.pauseConsole();
-            Util.clearConsole();
-            System.out.println("...");
-            Util.pauseConsole();
-            Util.clearConsole();
-            System.out.println("Successfully harvested fields!\n" + TextColor.RESET);
-            Util.pauseConsole();
             return;
         }
         else if (option == 2)
@@ -172,7 +161,7 @@ public class GameKanBonita extends GameActivity {
             Util.clearConsole();
             Scanner scan = new Scanner(System.in);
 
-            System.out.print(TextColor.GREEN + "What crop do you want to sell? \n1.Wheat\n2.Carrots\n" + TextColor.RESET);
+            System.out.print("What crop do you want to sell? \n1.Wheat\n2.Carrots\n" + TextColor.RESET);
 
             int option1 = Util.enterInt(1, 2);
 
@@ -241,11 +230,9 @@ public class GameKanBonita extends GameActivity {
         {
             btnPlantCarrotSeeds.setClickable(false);
         }
-        btnPlantCarrotSeeds.setOnClickListener(new View.OnClickListener() {
+        btnDone.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-
-            }
+            public void onClick(View view) {chooseOption();}
         });
 
 
@@ -254,72 +241,40 @@ public class GameKanBonita extends GameActivity {
 
     private void shop()
     {
-        Util.clearConsole();
-        Scanner scan = new Scanner(System.in);
+        setContentView(R.layout.activity_kanbonita_shop);
 
-        System.out.print(TextColor.RED + "\nMoney:\t$" + player.getMoney() + TextColor.RESET + TextColor.GREEN + "\nWhat would you like to buy?\n1. Wheat seeds - $5\n2. Carrot seeds - $10\n" + TextColor.RESET);
+        TextView tvMoneyVal = findViewById(R.id.tv_money_val);
 
-        int option = Util.enterInt(1, 2);
+        Button btnBuyCarrotSeeds = findViewById(R.id.btn_buy_carrots);
+        Button btnBuyWheatSeeds = findViewById(R.id.btn_buy_wheat);
+        Button btnDone = findViewById(R.id.btn_done);
 
-        System.out.print(TextColor.GREEN + "How many would you like to buy?\n" + TextColor.RESET);
+        tvMoneyVal.setText("" + player.getMoney());
 
-        int quantity = scan.nextInt();
+        btnBuyCarrotSeeds.setClickable(true);
+        btnBuyWheatSeeds.setClickable(true);
 
-        if (quantity <= 0)
-        {
-            System.out.println(TextColor.RED + "Invalid option! Please enter a positive number.\n" + TextColor.RESET);
-            Util.pauseConsole();
-            return;
+        if (player.getMoney() <= 0) {
+            btnBuyWheatSeeds.setClickable(false);
         }
-
-        int totalCost;
-
-        if (option == 1)
-        {
-            totalCost = quantity * 5; //Wheat cost $5 each
+        if (player.getMoney() <= 0) {
+            btnBuyCarrotSeeds.setClickable(false);
         }
-        else if (option == 2)
-        {
-            totalCost = quantity * 10; //Carrots cost $10 each
-        }
-        else
-        {
-            System.out.println(TextColor.RED + "Invalid option!\n" + TextColor.RESET);
-            Util.pauseConsole();
-            return;
-        }
+        btnDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {chooseOption();}
 
-
-        if (player.getMoney() >= totalCost)
-        {
-            if (option == 1)
-            {
-                System.out.print(TextColor.GREEN + "You successfully bought " + quantity + " wheat seeds!\n" + TextColor.RESET);
-                Util.pauseConsole();
-                player.setWheatSeeds(quantity);
             }
-            else if (option == 2)
-            {
-                System.out.print(TextColor.GREEN +"You successfully bought " + quantity + " carrot seeds!\n" + TextColor.RESET);
-                Util.pauseConsole();
-                player.setCarrotSeeds(quantity);
-            }
-            player.setMoney(player.getMoney() - totalCost);
+        });
         }
-        else
-        {
-            System.out.print(TextColor.RED + "You don't have enough money...\n" + TextColor.RESET);
-            Util.pauseConsole();
-            return;
-        }
-    }
+
 
     private void endOfGame()
     {
         Util.clearConsole();
-        System.out.println(TextColor.GREEN_BOLD + "Good job! you've reached $1000!\n" + TextColor.RESET);
+        System.out.println("Good job! you've reached $1000!\n");
         Util.pauseConsole();
-        System.out.println(TextColor.BLACK + "Do you want to play again?\n" + TextColor.GREEN_BOLD + "1. Yes\n" + TextColor.RED_BOLD + "2. No\n" + TextColor.RESET);
+        System.out.println("Do you want to play again?\n" + "1. Yes\n" + "2. No\n");
         int option = Util.enterInt(1,2);
         if (option == 1)
         {
